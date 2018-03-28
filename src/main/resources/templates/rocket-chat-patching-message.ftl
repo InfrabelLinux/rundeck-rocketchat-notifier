@@ -1,9 +1,5 @@
-<#if executionData.job.group??>
-    <#assign jobName="${executionData.job.group} / ${executionData.job.name}">
-<#else>
-    <#assign jobName="${executionData.job.name}">
-</#if>
-<#assign message="RunDeck Job Notification:">
+<#assign jobName="${executionData.job.name}">
+<#assign message="Patching Notification:">
 <#if trigger == "start">
     <#assign state="Started">
 <#elseif trigger == "failure">
@@ -16,7 +12,7 @@
 {
    "channel":"${channel}",
    "attachments":[
-      {  
+      {
 	 "title":"${formattedTitle}",
          "channel":"${channel}",
          "icon_emoji":":rundeck:",
@@ -24,7 +20,7 @@
          "color":"${color}",
          "fields":[
             {
-               "title":"Job Name",
+               "title":"Patching Job",
                "value":"<${executionData.job.href}|${executionData.job.name}>",
                "short":true
             },
@@ -40,9 +36,9 @@
             }
 <#if trigger == "failure">
             ,{
-               "title":"Failed Nodes",
-               "value":"${executionData.failedNodeListString!"- (Job itself failed)"}",
-               "short":false
+                "title":"Failed Nodes",
+                "value":"${executionData.failedNodeListString!"- (Job itself failed)"}",
+                "short":false
             }
 </#if>
 ]
