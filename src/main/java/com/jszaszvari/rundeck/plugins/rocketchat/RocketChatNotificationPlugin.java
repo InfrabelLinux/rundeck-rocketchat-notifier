@@ -64,7 +64,7 @@ public class RocketChatNotificationPlugin implements NotificationPlugin {
 
     private static final String ROCKET_CHAT_MESSAGE_FROM_NAME = "Rundeck";
 //    private static final String ROCKET_CHAT_EXT_MESSAGE_TEMPLATE_PATH = "/var/lib/rundeck/libext/templates";
-    private static final String ROCKET_CHAT_MESSAGE_TEMPLATE = "rocket-chat-incoming-message.ftl";
+    private static final String ROCKET_CHAT_MESSAGE_TEMPLATE = "rocket-chat-patching-message.ftl";
 
     private static final String TRIGGER_START = "start";
     private static final String TRIGGER_SUCCESS = "success";
