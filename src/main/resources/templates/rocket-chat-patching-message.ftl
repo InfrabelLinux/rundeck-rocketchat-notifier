@@ -20,25 +20,20 @@
          "color":"${color}",
          "fields":[
             {
-               "title":"Patching Job",
+               "title":"Host",
                "value":"<${executionData.job.href}|${executionData.job.name}>",
                "short":true
             },
             {
-               "title":"Status",
-               "value":"${state}",
-               "short":true
-            },
-            {
-               "title":"Execution ID",
-               "value":"<${executionData.href}|#${executionData.id}>",
+               "title":"Started",
+               "value":"<${executionData.href}|${executionData.dateStarted?string["yyyy-MM-dd HH:mm '('zzz')'"]}>",
                "short":true
             }
-<#if trigger == "failure">
+<#if trigger != "started">
             ,{
-                "title":"Failed Nodes",
-                "value":"${executionData.failedNodeListString!"- (Job itself failed)"}",
-                "short":false
+               "title":"Ended",
+               "value":"<${executionData.href}|${executionData.dateEnded?string["yyyy-MM-dd HH:mm '('zzz')'"]}>",
+               "short":true
             }
 </#if>
 ]
